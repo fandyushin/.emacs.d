@@ -21,6 +21,20 @@
   :bind
   ("C-x c a" . projectile-ag))
 
+(use-package kill-or-bury-alive
+  :bind
+  ("C-x k" . kill-or-bury-alive)
+  ("C-c C-k" . kill-buffer))
+
+(use-package hlinum
+  :config
+  (hlinum-activate))
+
+(use-package linum
+  :config
+  (setq linum-format " %3d ")
+  (global-linum-mode nil))
+
 (use-package dashboard
   :config
   (setq dashboard-items '((recents  . 5)
