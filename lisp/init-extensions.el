@@ -1,5 +1,9 @@
 ;; init-extensions
 
+(use-package which-key
+  :config
+  (which-key-mode))
+
 (use-package exec-path-from-shell
   :config
   (when (memq window-system '(mac ns x))
@@ -20,6 +24,12 @@
   (projectile-global-mode)
   :bind
   ("C-x c a" . projectile-ag))
+
+
+(use-package xah-fly-keys
+  :config
+  (xah-fly-keys-set-layout "qwerty")
+  (xah-fly-keys 1))
 
 (use-package kill-or-bury-alive
   :bind
