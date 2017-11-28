@@ -13,7 +13,25 @@
   (format "%s/cache" private-dir)
   "Hostname-based elisp temp directories")
 
+;; Core settings
+;; UTF-8 please
+(set-charset-priority 'unicode)
+(setq locale-coding-system   'utf-8)   ; pretty
+(set-terminal-coding-system  'utf-8)   ; pretty
+(set-keyboard-coding-system  'utf-8)   ; pretty
+(set-selection-coding-system 'utf-8)   ; please
+(prefer-coding-system        'utf-8)   ; with sugar on top
+(setq default-process-coding-system '(utf-8-unix . utf-8-unix))
+
+(fset 'yes-or-no-p 'y-or-n-p)
+(global-auto-revert-mode t)
+
+(setq-default indent-tabs-mode nil)
 (setq
- use-package-always-ensure    t)
+ use-package-always-ensure    t
+ history-length                     1000
+ auto-save-default                  nil
+ auto-save-list-file-name           (concat temp-dir "/autosave")
+ make-backup-files                  nil)
 
 (provide 'init-core)

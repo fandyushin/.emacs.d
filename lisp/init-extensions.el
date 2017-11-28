@@ -51,6 +51,30 @@
 			  (projects . 5)))
   (dashboard-setup-startup-hook))
 
+(use-package yasnippet
+  :bind
+  ("C-c y s" . yas-insert-snippet)
+  ("C-c y v" . yas-visit-snippet-file)
+  :config
+  (yas-global-mode 1)
+  (setq yas-snippet-dirs (append yas-snippet-dirs
+                                 '("~/.emacs.d/snippets"))))
+
+(use-package markdown-mode
+  :commands (markdown-mode gfm-mode)
+  :mode (("README\\.md\\'" . gfm-mode)
+         ("\\.md\\'" . markdown-mode)
+         ("\\.markdown\\'" . markdown-mode))
+  :init (setq markdown-command "multimarkdown"))
+
+(use-package flymd
+  :config
+  (defun my-flymd-browser-function (url)
+   (let ((browse-url-browser-function 'browse-url-firefox))
+     (browse-url url)))
+  (setq flymd-browser-open-function 'my-flymd-browser-function)
+  (setq flymd-output-directory "/tmp"))
+
 (use-package diminish
   :config
   (defmacro diminish-minor-mode (filename mode &optional abbrev)
@@ -62,7 +86,10 @@
                (lambda () (setq mode-name ,abbrev))))
 
   (diminish-minor-mode 'company 'company-mode)
-  (diminish-minor-mode 'projectile 'projectile-mode))
+  (diminish-minor-mode 'projectile 'projectile-mode)
+  (diminish-minor-mode 'yasnippet 'yas-minor-mode)
+  (diminish-minor-mode 'Which-Key 'which-key-mode)
+  (diminish-minor-mode 'markdown 'markdown-mode))
 
 (provide 'init-extensions)
 
