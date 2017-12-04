@@ -34,4 +34,14 @@
  auto-save-list-file-name           (concat temp-dir "/autosave")
  make-backup-files                  nil)
 
+;; Disable toolbar & menubar
+(menu-bar-mode -1)
+(when (fboundp 'tool-bar-mode)
+  (tool-bar-mode -1))
+(when (fboundp 'scroll-bar-mode)
+  (scroll-bar-mode -1))
+
+;; Delete trailing whitespace before save
+(add-hook 'before-save-hook 'delete-trailing-whitespace)
+
 (provide 'init-core)

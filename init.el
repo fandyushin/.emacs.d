@@ -5,6 +5,7 @@
 (add-to-list 'load-path (concat user-emacs-directory "lisp"))
 
 (require 'init-core)
+(require 'init-ui)
 (require 'init-extensions)
 (require 'init-golang)
 (require 'init-cxx)

@@ -37,6 +37,7 @@
   (setq rtags-completions-enabled t)
   (rtags-diagnostics)
   (rtags-enable-standard-keybindings)
-  (push 'company-rtags company-backends))
+  (push 'company-rtags company-backends)
+  (add-hook 'c-mode-common-hook 'rtags-start-process-unless-running))
 
 (provide 'init-cxx)
