@@ -1,5 +1,13 @@
 ;; init-extensions
 
+(use-package ag)
+
+(use-package anzu
+  :config
+  (global-anzu-mode +1)
+  (global-set-key [remap query-replace] 'anzu-query-replace)
+  (global-set-key [remap query-replace-regexp] 'anzu-query-replace-regexp))
+
 (use-package which-key
   :config
   (which-key-mode))
@@ -25,6 +33,15 @@
   :bind
   ("C-x c a" . projectile-ag))
 
+(use-package recentf
+  :config
+  (setq recentf-exclude '("/elpa/" ;; ignore all files in elpa directory
+                          ".*?autoloads.el$"
+                          "/tmp/" ;; ignore temporary files
+                          "*/.elfeed/index"
+                          )
+        recentf-save-file (recentf-expand-file-name "~/.emacs.d/private/cache/recentf"))
+  (recentf-mode 1))
 
 (use-package xah-fly-keys
   :config
@@ -87,9 +104,10 @@
 
   (diminish-minor-mode 'company 'company-mode)
   (diminish-minor-mode 'projectile 'projectile-mode)
+  (diminish-minor-mode 'elpy 'elpy-mode)
+  (diminish-major-mode 'python-mode-hook "Py")
   (diminish-minor-mode 'yasnippet 'yas-minor-mode)
   (diminish-minor-mode 'Which-Key 'which-key-mode)
   (diminish-minor-mode 'markdown 'markdown-mode))
 
 (provide 'init-extensions)
-
