@@ -80,6 +80,7 @@
   ("C-c y s" . yas-insert-snippet)
   ("C-c y v" . yas-visit-snippet-file)
   :config
+  (use-package yasnippet-snippets)
   (yas-global-mode 1)
   (setq yas-snippet-dirs (append yas-snippet-dirs
                                  '("~/.emacs.d/snippets"))))

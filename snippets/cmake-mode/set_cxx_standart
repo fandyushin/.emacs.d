@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: set_cxx_standart
+# key: std
+# --
+set(CMAKE_CXX_STANDART ${11})
+
