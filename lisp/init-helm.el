@@ -12,6 +12,8 @@
              ("C-x C-g" . helm-projectile-grep))
       :config (helm-projectile-on)))
   ;; Tell Helm to resize the selector as needed.
+  (define-key helm-find-files-map "\t"
+    'helm-execute-persistent-action)
   (helm-autoresize-mode 1)
   ;; Make Helm look nice.
   (setq-default helm-display-header-line nil
