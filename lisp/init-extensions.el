@@ -1,5 +1,12 @@
 ;; init-extensions
 
+(use-package buffer-move
+  :bind
+  ("C-` <up>" . buf-move-up)
+  ("C-` <down>" . buf-move-down)
+  ("C-` <right>" . buf-move-right)
+  ("C-` <left>" . buf-move-left))
+
 (use-package ag)
 
 (use-package anzu
@@ -92,6 +99,17 @@
   (setq flymd-browser-open-function 'my-flymd-browser-function)
   (setq flymd-output-directory "/tmp"))
 
+(use-package protobuf-mode)
+
+(use-package magit
+  :commands magit-status
+  :bind ("C-x g" . magit-status))
+
+(use-package git-gutter-fringe
+  :config
+  (global-git-gutter-mode t)
+  :diminish git-gutter-mode)
+
 (use-package diminish
   :config
   (defmacro diminish-minor-mode (filename mode &optional abbrev)
@@ -108,6 +126,7 @@
   (diminish-major-mode 'python-mode-hook "Py")
   (diminish-minor-mode 'yasnippet 'yas-minor-mode)
   (diminish-minor-mode 'Which-Key 'which-key-mode)
-  (diminish-minor-mode 'markdown 'markdown-mode))
+  (diminish-minor-mode 'markdown 'markdown-mode)
+  (diminish-minor-mode 'protobuf 'protobuf-mode))
 
 (provide 'init-extensions)

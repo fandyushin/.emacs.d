@@ -1,3 +1,15 @@
+(use-package cmake-mode;
+  :config
+  (setq auto-mode-alist
+	  (append
+	   '(("CMakeLists\\.txt\\'" . cmake-mode))
+	   '(("\\.cmake\\'" . cmake-mode))
+	   auto-mode-alist)))
+
+(use-package cmake-ide
+  :config
+  (cmake-ide-setup))
+
 (use-package cc-mode
   :config
   (setq c-default-style "linux") ;; set style to "linux"
@@ -20,7 +32,7 @@
   :after company-mode
   :config
   (add-to-list
-    'company-backends '(company-irony-c-headers company-irony)))
+   'company-backends '(company-irony-c-headers company-irony)))
 
 (use-package company-c-headers
   :config
@@ -29,10 +41,14 @@
 (use-package company-c-headers
   :config
   (add-to-list 'company-backends 'company-c-headers))
+
+(use-package company-cmake
+  :config
+  (add-to-list 'company-backends 'company-cmake))
 
 
 (use-package rtags
-  :config
+  :config 
   (setq rtags-autostart-diagnostics t)
   (setq rtags-completions-enabled t)
   (rtags-diagnostics)
