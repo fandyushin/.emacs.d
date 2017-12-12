@@ -12,9 +12,10 @@
              ("C-x C-g" . helm-projectile-grep))
       :config (helm-projectile-on)))
   ;; Tell Helm to resize the selector as needed.
-  (define-key helm-find-files-map "\t"
-    'helm-execute-persistent-action)
   (helm-autoresize-mode 1)
+  (define-key helm-map (kbd "<tab>") 'helm-execute-persistent-action) ; rebind tab to do persistent action
+  (define-key helm-map (kbd "C-i") 'helm-execute-persistent-action) ; make TAB works in terminal
+  (define-key helm-map (kbd "C-z")  'helm-select-action) ; list actions using C-z
   ;; Make Helm look nice.
   (setq-default helm-display-header-line nil
                 helm-autoresize-min-height 10

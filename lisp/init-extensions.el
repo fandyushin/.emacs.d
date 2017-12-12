@@ -50,11 +50,6 @@
         recentf-save-file (recentf-expand-file-name "~/.emacs.d/private/cache/recentf"))
   (recentf-mode 1))
 
-(use-package xah-fly-keys
-  :config
-  (xah-fly-keys-set-layout "qwerty")
-  (xah-fly-keys 1))
-
 (use-package kill-or-bury-alive
   :bind
   ("C-x k" . kill-or-bury-alive)
