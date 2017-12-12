@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: add_cmake_module_path
+# key: path
+# --
+
+set(CMAKE_MODULE_PATH "${1:${CMAKE_CURRENT_LIST_DIR}/cmake/}" ${CMAKE_MODULE_PATH})

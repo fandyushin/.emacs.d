@@ -35,7 +35,8 @@
   :config
   (setq projectile-enable-caching t
         projectile-cache-file (expand-file-name "projectile.cache" temp-dir)
-        projectile-known-projects-file (expand-file-name "projectile-bookmarks.eld" temp-dir))
+        projectile-known-projects-file (expand-file-name "projectile-bookmarks.eld" temp-dir)
+        projectile-indexing-method 'git)
   (projectile-global-mode)
   :bind
   ("C-x c a" . projectile-ag))

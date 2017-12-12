@@ -19,7 +19,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (py-isort py-autopep8 pip-requirements elpy f company-cmake company-c-headers company-irony-c-headers company-irony irony cmake-ide cmake-mode company-go go-add-tags go-errcheck go-mode helm-ext helm-flx helm-projectile swiper-helm helm diminish git-gutter-fringe magit protobuf-mode flymd markdown-mode yasnippet dashboard hlinum kill-or-bury-alive xah-fly-keys projectile company exec-path-from-shell which-key anzu ag buffer-move powerline tangotango-theme use-package))))
+    (helm-ag yasnippet-snippets xah-fly-keys which-key use-package tangotango-theme swiper-helm rtags py-isort py-autopep8 protobuf-mode powerline pip-requirements markdown-mode magit kill-or-bury-alive hlinum helm-projectile helm-flx helm-ext go-errcheck go-add-tags git-gutter-fringe flymd f exec-path-from-shell elpy diminish dashboard company-irony-c-headers company-irony company-go company-c-headers cmake-mode cmake-ide buffer-move anzu all-the-icons ag))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
