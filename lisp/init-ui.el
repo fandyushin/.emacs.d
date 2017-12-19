@@ -1,6 +1,8 @@
-(use-package tangotango-theme
+(set-default-font "Hack")
+
+(use-package darktooth-theme
   :config
-  (load-theme 'tangotango t))
+  (load-theme 'darktooth t))
 
 (use-package all-the-icons)
 

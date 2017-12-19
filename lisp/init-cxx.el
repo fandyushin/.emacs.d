@@ -19,6 +19,10 @@
 	tab-width 4
 	indent-tabs-mode t))
 
+(use-package function-args
+  :config
+  (fa-config-default))
+
 (use-package irony
   :config
   (add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options))
@@ -48,7 +52,7 @@
 
 
 (use-package rtags
-  :config 
+  :config
   (setq rtags-autostart-diagnostics t)
   (setq rtags-completions-enabled t)
   (rtags-diagnostics)

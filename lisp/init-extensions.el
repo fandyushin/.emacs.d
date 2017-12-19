@@ -1,5 +1,9 @@
 ;; init-extensions
 
+(use-package move-text
+  :config
+  (move-text-default-bindings))
+
 (use-package buffer-move
   :bind
   ("C-` <up>" . buf-move-up)
@@ -117,7 +121,7 @@
     `(add-hook ,mode-hook
                (lambda () (setq mode-name ,abbrev))))
 
-  (diminish-minor-mode 'company 'company-mode)
+  (diminish-major-mode 'company 'company-mode)
   (diminish-minor-mode 'projectile 'projectile-mode)
   (diminish-minor-mode 'elpy 'elpy-mode)
   (diminish-major-mode 'python-mode-hook "Py")
