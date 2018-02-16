@@ -4,13 +4,6 @@
   :config
   (move-text-default-bindings))
 
-(use-package buffer-move
-  :bind
-  ("C-` <up>" . buf-move-up)
-  ("C-` <down>" . buf-move-down)
-  ("C-` <right>" . buf-move-right)
-  ("C-` <left>" . buf-move-left))
-
 (use-package ag)
 
 (use-package anzu
@@ -60,21 +53,6 @@
   ("C-x k" . kill-or-bury-alive)
   ("C-c C-k" . kill-buffer))
 
-(use-package hlinum
-  :config
-  (hlinum-activate))
-
-(use-package linum
-  :config
-  (setq linum-format " %3d ")
-  (global-linum-mode nil))
-
-(use-package dashboard
-  :config
-  (setq dashboard-items '((recents  . 5)
-			  (projects . 5)))
-  (dashboard-setup-startup-hook))
-
 (use-package yasnippet
   :bind
   ("C-c y s" . yas-insert-snippet)
@@ -102,9 +80,9 @@
 
 (use-package protobuf-mode)
 
-(use-package magit
-  :commands magit-status
-  :bind ("C-x g" . magit-status))
+;; (use-package magit
+;;   :commands magit-status
+;;   :bind ("C-x g" . magit-status))
 
 (use-package git-gutter-fringe
   :config
@@ -121,7 +99,7 @@
     `(add-hook ,mode-hook
                (lambda () (setq mode-name ,abbrev))))
 
-  (diminish-major-mode 'company 'company-mode)
+  (diminish-minor-mode 'company 'company-mode)
   (diminish-minor-mode 'projectile 'projectile-mode)
   (diminish-minor-mode 'elpy 'elpy-mode)
   (diminish-major-mode 'python-mode-hook "Py")
