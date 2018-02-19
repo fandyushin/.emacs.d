@@ -2,10 +2,10 @@
 
 (require 'init-core)
 (require 'init-ui)
-;;(require 'init-extensions)
+(require 'init-extensions)
 ;;(require 'init-helm)
 ;;(require 'init-golang)
 ;;(require 'init-cxx)
-;;(require 'init-python)
+(require 'init-python)
 ;;(require 'init-lua)
 ;;(require 'init-keys)
