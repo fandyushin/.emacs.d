@@ -4,13 +4,6 @@
   (require 'helm)
   ;; Activate Helm.
   (helm-mode 1)
-  (with-eval-after-load "init-extensions"
-    (use-package helm-projectile
-      ;; A binding for using Helm to pick files using Projectile,
-      ;; and override the normal grep with a Projectile based grep.
-      :bind (("C-c C-f" . helm-projectile-find-file-dwim)
-             ("C-x C-g" . helm-projectile-grep))
-      :config (helm-projectile-on)))
   ;; Tell Helm to resize the selector as needed.
   (helm-autoresize-mode 1)
   (define-key helm-map (kbd "<tab>") 'helm-execute-persistent-action) ; rebind tab to do persistent action

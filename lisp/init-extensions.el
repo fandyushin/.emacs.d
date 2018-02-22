@@ -1,25 +1,16 @@
 ;; init-extensions
 
-;; (use-package move-text
-;;   :config
-;;   (move-text-default-bindings))
+(use-package move-text
+  :config
+  (move-text-default-bindings))
 
-;; (use-package ag)
+ (use-package ag)
 
-;; (use-package anzu
-;;   :config
-;;   (global-anzu-mode +1)
-;;   (global-set-key [remap query-replace] 'anzu-query-replace)
-;;   (global-set-key [remap query-replace-regexp] 'anzu-query-replace-regexp))
-
-;; (use-package which-key
-;;   :config
-;;   (which-key-mode))
-
-;; (use-package exec-path-from-shell
-;;   :config
-;;   (when (memq window-system '(mac ns x))
-;;     (exec-path-from-shell-initialize)))
+(use-package anzu
+  :config
+  (global-anzu-mode +1)
+  (global-set-key [remap query-replace] 'anzu-query-replace)
+  (global-set-key [remap query-replace-regexp] 'anzu-query-replace-regexp))
 
 (use-package company
   :bind
@@ -27,16 +18,6 @@
   ("M-;" . company-yasnippet)
   :config
   (add-hook 'after-init-hook 'global-company-mode))
-
-;; (use-package projectile
-;;   :config
-;;   (setq projectile-enable-caching t
-;;         projectile-cache-file (expand-file-name "projectile.cache" temp-dir)
-;;         projectile-known-projects-file (expand-file-name "projectile-bookmarks.eld" temp-dir)
-;;         projectile-indexing-method 'git)
-;;   (projectile-global-mode)
-;;   :bind
-;;   ("C-x c a" . projectile-ag))
 
 (use-package recentf
   :config
@@ -48,53 +29,29 @@
         recentf-save-file (recentf-expand-file-name "~/.emacs.d/private/cache/recentf"))
   (recentf-mode 1))
 
-;; (use-package yasnippet
-;;   :bind
-;;   ("C-c y s" . yas-insert-snippet)
-;;   ("C-c y v" . yas-visit-snippet-file)
-;;   :config
-;;   (use-package yasnippet-snippets)
-;;   (yas-global-mode 1)
-;;   (setq yas-snippet-dirs (append yas-snippet-dirs
-;;                                  '("~/.emacs.d/snippets"))))
-
-;; (use-package markdown-mode
-;;   :commands (markdown-mode gfm-mode)
-;;   :mode (("README\\.md\\'" . gfm-mode)
-;;          ("\\.md\\'" . markdown-mode)
-;;          ("\\.markdown\\'" . markdown-mode))
-;;   :init (setq markdown-command "multimarkdown"))
-
-;; (use-package flymd
-;;   :config
-;;   (defun my-flymd-browser-function (url)
-;;    (let ((browse-url-browser-function 'browse-url-firefox))
-;;      (browse-url url)))
-;;   (setq flymd-browser-open-function 'my-flymd-browser-function)
-;;   (setq flymd-output-directory "/tmp"))
-
-;; (use-package protobuf-mode)
-
-;; ;; (use-package magit
-;; ;;   :commands magit-status
-;; ;;   :bind ("C-x g" . magit-status))
-
-;; (use-package git-gutter-fringe
-;;   :config
-;;   (global-git-gutter-mode t)
-;;   :diminish git-gutter-mode)
-
-(use-package diminish
+(use-package yasnippet
+  :bind
+  ("C-c y s" . yas-insert-snippet)
+  ("C-c y v" . yas-visit-snippet-file)
   :config
-  (defmacro diminish-minor-mode (filename mode &optional abbrev)
-    `(eval-after-load (symbol-name ,filename)
-       '(diminish ,mode ,abbrev)))
+  (use-package yasnippet-snippets)
+  (yas-global-mode 1)
+  (setq yas-snippet-dirs (append yas-snippet-dirs
+                                 '("~/.emacs.d/snippets"))))
 
-  (defmacro diminish-major-mode (mode-hook abbrev)
-    `(add-hook ,mode-hook
-               (lambda () (setq mode-name ,abbrev))))
+(use-package markdown-mode
+  :commands (markdown-mode gfm-mode)
+  :mode (("README\\.md\\'" . gfm-mode)
+         ("\\.md\\'" . markdown-mode)
+         ("\\.markdown\\'" . markdown-mode))
+  :init (setq markdown-command "multimarkdown"))
 
-  (diminish-minor-mode 'company 'company-mode)
-  (diminish-major-mode 'python-mode-hook "Py"))
+(use-package flymd
+  :config
+  (defun my-flymd-browser-function (url)
+   (let ((browse-url-browser-function 'browse-url-firefox))
+     (browse-url url)))
+  (setq flymd-browser-open-function 'my-flymd-browser-function)
+  (setq flymd-output-directory "/tmp"))
 
 (provide 'init-extensions)

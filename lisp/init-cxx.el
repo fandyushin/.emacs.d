@@ -38,26 +38,13 @@
   (add-to-list
    'company-backends '(company-irony-c-headers company-irony)))
 
-(use-package company-c-headers
-  :config
-  (add-to-list 'company-backends 'company-c-headers))
-
-(use-package company-c-headers
-  :config
-  (add-to-list 'company-backends 'company-c-headers))
-
-(use-package company-cmake
-  :config
-  (add-to-list 'company-backends 'company-cmake))
-
-
-(use-package rtags
-  :config
-  (setq rtags-autostart-diagnostics t)
-  (setq rtags-completions-enabled t)
-  (rtags-diagnostics)
-  (rtags-enable-standard-keybindings)
-  (push 'company-rtags company-backends)
-  (add-hook 'c-mode-common-hook 'rtags-start-process-unless-running))
+;; (use-package rtags
+;;   :config
+;;   (setq rtags-autostart-diagnostics t)
+;;   (setq rtags-completions-enabled t)
+;;   (rtags-diagnostics)
+;;   (rtags-enable-standard-keybindings)
+;;   (push 'company-rtags company-backends)
+;;   (add-hook 'c-mode-common-hook 'rtags-start-process-unless-running))
 
 (provide 'init-cxx)

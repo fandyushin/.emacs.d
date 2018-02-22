@@ -1,4 +1,4 @@
-(set-face-attribute 'default nil :family "Iosevka" :height 151 :weight 'light :width 'normal :slant 'normal)
+(set-face-attribute 'default nil :family "Iosevka" :height 147 :weight 'light :width 'normal :slant 'normal)
 
 (use-package moe-theme
   :config
@@ -24,8 +24,15 @@
 (use-package neotree
   :config
   (setq neo-theme 'ascii)
+  (setq neo-click-changes-root t)
   :bind
   ("<f8>" . neotree-toggle))
+
+(use-package smooth-scroll
+  :if (display-graphic-p)
+  :delight
+  :custom (smooth-scroll/vscroll-step-size 8)
+  :config (smooth-scroll-mode))
 
 (use-package spaceline-config
   :ensure spaceline

@@ -3,6 +3,12 @@
    'package-archives
    '("melpa" . "http://melpa.milkbox.net/packages/")
    t)
+
+(add-to-list
+   'package-archives
+   '("marmalade" . "http://marmalade-repo.org/packages/")
+   t)
+
 (package-initialize)
 
 (unless package-archive-contents
@@ -15,6 +21,9 @@
 (defconst temp-dir
   (format "%s/cache" private-dir)
   "Hostname-based elisp temp directories")
+
+(blink-cursor-mode -1)
+(set-cursor-color "#d54e53")
 
 ;; Core settings
 ;; UTF-8 please
@@ -29,7 +38,8 @@
 (fset 'yes-or-no-p 'y-or-n-p)
 (global-auto-revert-mode t)
 
-(setq-default indent-tabs-mode nil)
+(setq-default ring-bell-function 'ignore
+              indent-tabs-mode nil)
 (setq
  use-package-always-ensure    t
  history-length                     1000
